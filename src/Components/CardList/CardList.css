@@ -1,0 +1,15 @@
+.card-container {
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.custom-card {
+  width: 100%;
+  height: 100%;
+}
