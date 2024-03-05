@@ -20,7 +20,7 @@ const CardDetail: React.FC = (): JSX.Element => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`https://newsapi.org/v2/everything?q=apple&from=2024-02-07&to=2024-02-07&sortBy=popularity&apiKey=e2a4fa7ed5bb4878910036b63b83e379`);
-        const article = response.data.articles.find((article: CardProps) => article.id === id);
+        const article = response.data.articles[10];
         if (article) {
           setNews(article);
         } else {

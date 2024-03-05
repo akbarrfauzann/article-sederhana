@@ -2,5 +2,35 @@
   color: white;
   font-size: 2rem;
   font-family: "Poppins";
-  padding: 10;
+  text-align: center;
+}
+
+.search-header {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  font-size: 2rem;
+  margin-left: 10px;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+  .brand {
+    text-align: center;
+  }
+
+  .search-header {
+    justify-content: center;
+    margin-left: 10px;
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .search-header {
+    flex: 1;
+    max-width: 100%;
+  }
 }
