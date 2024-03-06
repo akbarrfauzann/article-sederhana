@@ -1,18 +1,23 @@
 import { Header } from "antd/es/layout/layout";
 import "./Heading.css";
-import { Input } from "antd";
+import { Badge, Input, notification } from "antd";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { CiBookmark } from "react-icons/ci";
-// import { FaRegUserCircle } from "react-icons/fa";
 import { AiOutlineUser } from "react-icons/ai";
 
 const { Search } = Input;
-// const items = new Array(3).fill(null).map((_, index) => ({
-//   key: String(index + 1),
-//   label: `nav ${index + 1}`,
-// }));
+
 function Heading() {
   const handleSearch = (value: string) => console.log("search:", value);
+  const notificationCount = 1;
+  const openNotification = () => {
+    notification.open({
+      message: "Notification Title",
+      description: "description.",
+      placement: "bottomRight",
+    });
+  };
+
   return (
     <Header
       style={{
@@ -34,7 +39,9 @@ function Heading() {
       </div>
 
       <div className="icon">
-        <IoIosNotificationsOutline />
+        <Badge count={notificationCount} size="small" style={{ marginRight: "10px", marginTop: "5px" }}>
+          <IoIosNotificationsOutline onClick={openNotification} style={{ cursor: "pointer", fontSize: "2rem", color: "#ffffff" }} />
+        </Badge>
         <CiBookmark />
         <AiOutlineUser />
       </div>

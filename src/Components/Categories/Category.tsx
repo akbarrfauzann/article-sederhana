@@ -3,8 +3,8 @@ import { Header } from "antd/es/layout/layout";
 
 function Categories() {
   return (
-    <Header style={{ borderBottom: "1px solid gray", position: "sticky", top: 0 }}>
-      <Menu theme="dark" mode="horizontal" style={{ fontWeight: "bold" }}>
+    <Header style={{ borderBottom: "1px solid gray" }}>
+      <Menu theme="dark" mode="horizontal" style={{ fontWeight: "bold", justifyContent: "center", display: "flex" }}>
         <Menu.Item>LIFESTYLE</Menu.Item>
         <Menu.Item>BUSINESS</Menu.Item>
         <Menu.Item>FASHION</Menu.Item>
