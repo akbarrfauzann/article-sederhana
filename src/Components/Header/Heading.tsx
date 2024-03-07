@@ -1,9 +1,11 @@
 import { Header } from "antd/es/layout/layout";
 import "./Heading.css";
-import { Badge, Input, notification } from "antd";
+import { Badge, Input, Popover, notification } from "antd";
 import { IoIosNotificationsOutline } from "react-icons/io";
-import { CiBookmark } from "react-icons/ci";
 import { AiOutlineUser } from "react-icons/ai";
+import { AiOutlineMail } from "react-icons/ai";
+
+import { useState } from "react";
 
 const { Search } = Input;
 
@@ -16,6 +18,15 @@ function Heading() {
       description: "description.",
       placement: "bottomRight",
     });
+  };
+  const [open, setOpen] = useState(false);
+
+  const hide = () => {
+    setOpen(false);
+  };
+
+  const handleOpenChange = (newOpen: boolean) => {
+    setOpen(newOpen);
   };
 
   return (
@@ -42,8 +53,10 @@ function Heading() {
         <Badge count={notificationCount} size="small" style={{ marginRight: "10px", marginTop: "5px" }}>
           <IoIosNotificationsOutline onClick={openNotification} style={{ cursor: "pointer", fontSize: "2rem", color: "#ffffff" }} />
         </Badge>
-        <CiBookmark />
-        <AiOutlineUser />
+        <AiOutlineMail style={{ marginRight: "10px", marginLeft: "10px" }} />
+        <Popover content={<a onClick={hide}>Close</a>} title="Title" trigger="click" open={open} onOpenChange={handleOpenChange}>
+          <AiOutlineUser style={{ backgroundColor: "transparent", border: "none", fontSize: "2rem", color: "#ffffff", alignItems: "center" }} />
+        </Popover>
       </div>
     </Header>
   );

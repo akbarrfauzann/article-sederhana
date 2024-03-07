@@ -43,7 +43,7 @@ const CardList: React.FC = (): JSX.Element => {
     >
       <Card hoverable style={{ width: "80%", margin: "50px auto", padding: "10px" }} styles={{ body: { padding: 0, overflow: "hidden" } }}>
         <Flex justify="space-between">
-          <img alt="avatar" src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" style={{ display: "block", width: "100%", maxWidth: "273px" }} />
+          <img alt="avatar" src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" style={{ width: "100%", maxWidth: "273px" }} />
           <Flex vertical style={{ padding: 32 }}>
             <p style={{ margin: 0, padding: 0, fontFamily: "Arial" }}>
               Business, Food - <b>March 5, 2024</b>
@@ -68,22 +68,20 @@ const CardList: React.FC = (): JSX.Element => {
       <div className="card-container">
         <div className="card-row">
           {news.map((article: NewsArticle) => (
-            <Link key={article.id} to={`/detail/${article.id}`} className="custom-card-link">
-              <Card className="custom-card">
-                <img alt="example" style={{ width: "100%", height: "200px", objectFit: "cover" }} src={article.urlToImage} />
-                <p style={{ marginTop: "10px", fontFamily: "Arial" }}>
-                  Business, Food - <b>March 5, 2024</b>
-                </p>
-                <Title level={3}>{article.title}</Title>
-                <Paragraph>{article.content}</Paragraph>
-                <Row style={{ display: "flex" }}>
-                  <img src="src/assets/images/profile.jpg" alt="picture" width={50} height={50} style={{ borderRadius: "100%", maxWidth: "50px", height: "auto" }} />
-                  <div style={{ marginLeft: "10px" }}>
-                    <h3 style={{ fontFamily: "sans-serif", fontWeight: "bold", fontSize: "15px" }}>{article.author}</h3>
-                    <p style={{ lineHeight: "0", color: "#00000040", fontWeight: "bold" }}>CEO of Apple</p>
-                  </div>
-                </Row>
-              </Card>
+            <Link key={article.id} to={`/detail/${article.id}`} className="custom-card-link" style={{ color: "black", margin: "10px" }}>
+              <img alt="example" style={{ width: "100%", height: "200px", objectFit: "cover" }} src={article.urlToImage} />
+              <p style={{ marginTop: "10px", fontFamily: "Arial" }}>
+                Business, Food - <b>March 5, 2024</b>
+              </p>
+              <Title level={3}>{article.title}</Title>
+              <Paragraph>{article.content}</Paragraph>
+              <Row style={{ display: "flex" }}>
+                <img src="src/assets/images/profile.jpg" alt="picture" width={50} height={50} style={{ borderRadius: "100%", maxWidth: "50px", height: "auto" }} />
+                <div style={{ marginLeft: "10px" }}>
+                  <h3 style={{ fontFamily: "sans-serif", fontWeight: "bold", fontSize: "15px" }}>{article.author}</h3>
+                  <p style={{ lineHeight: "0", color: "#00000040", fontWeight: "bold" }}>CEO of Apple</p>
+                </div>
+              </Row>
             </Link>
           ))}
         </div>
