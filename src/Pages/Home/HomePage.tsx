@@ -1,7 +1,8 @@
 import { Layout } from "antd";
 import Heading from "../../Components/Header/Heading";
-import CardList from "../../Components/CardList/CardList";
+import CardList from "../../Components/Content/CardList";
 import Categories from "../../Components/Categories/Category";
+import Foot from "../../Components/Footer/Footer";
 
 const HomePage: React.FC = (): JSX.Element => {
   return (
@@ -11,6 +12,7 @@ const HomePage: React.FC = (): JSX.Element => {
       <Layout>
         <CardList />
       </Layout>
+      <Foot />
     </Layout>
   );
 };

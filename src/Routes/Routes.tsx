@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import HomePage from "../Pages/Home/HomePage";
-import CardList from "../Components/CardList/CardList";
+import CardList from "../Components/Content/CardList";
 import CardDetail from "../Components/CardDetail/CardDetail";
 
 export const router = createBrowserRouter([

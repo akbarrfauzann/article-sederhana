@@ -1,17 +1,27 @@
-import { Header } from "antd/es/layout/layout";
+import React from "react";
 import "./Heading.css";
-import { Badge, Input, Popover, notification } from "antd";
-import { IoIosNotificationsOutline } from "react-icons/io";
-import { AiOutlineUser } from "react-icons/ai";
+import { Input, Badge, notification } from "antd";
 import { AiOutlineMail } from "react-icons/ai";
-
-import { useState } from "react";
+import { Header } from "antd/es/layout/layout";
+import { MdNotificationsNone, MdOutlineDarkMode } from "react-icons/md";
 
 const { Search } = Input;
 
-function Heading() {
-  const handleSearch = (value: string) => console.log("search:", value);
+function Brand() {
+  return <div className="brand">BAYDESIGN</div>;
+}
+
+function SearchBar() {
+  return (
+    <div className="search-header">
+      <Search placeholder="input search text" />
+    </div>
+  );
+}
+
+function IconHeader() {
   const notificationCount = 1;
+
   const openNotification = () => {
     notification.open({
       message: "Notification Title",
@@ -19,47 +29,39 @@ function Heading() {
       placement: "bottomRight",
     });
   };
-  const [open, setOpen] = useState(false);
 
-  const hide = () => {
-    setOpen(false);
-  };
+  return (
+    <div className="icon">
+      <MdOutlineDarkMode />
+      <Badge count={notificationCount} size="small" style={{ marginRight: "8px", marginTop: "5px" }}>
+        <MdNotificationsNone className="icon-notification" onClick={openNotification} style={{ color: "var(--second-color)", cursor: "pointer", fontSize: "2rem" }} />
+      </Badge>
+      <AiOutlineMail style={{ marginLeft: "5px" }} />
+    </div>
+  );
+}
 
-  const handleOpenChange = (newOpen: boolean) => {
-    setOpen(newOpen);
-  };
-
+const Heading: React.FC = () => {
   return (
     <Header
       style={{
         position: "sticky",
         top: 0,
-        zIndex: 1,
+        zIndex: 2,
         height: "80px",
         width: "100%",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
         borderBottom: "1px solid gray",
+        backgroundColor: "#ffffff",
       }}
     >
-      <div className="brand">BAYDESIGN</div>
-
-      <div className="search-header">
-        <Search placeholder="input search text" onSearch={handleSearch} enterButton />
-      </div>
-
-      <div className="icon">
-        <Badge count={notificationCount} size="small" style={{ marginRight: "10px", marginTop: "5px" }}>
-          <IoIosNotificationsOutline onClick={openNotification} style={{ cursor: "pointer", fontSize: "2rem", color: "#ffffff" }} />
-        </Badge>
-        <AiOutlineMail style={{ marginRight: "10px", marginLeft: "10px" }} />
-        <Popover content={<a onClick={hide}>Close</a>} title="Title" trigger="click" open={open} onOpenChange={handleOpenChange}>
-          <AiOutlineUser style={{ backgroundColor: "transparent", border: "none", fontSize: "2rem", color: "#ffffff", alignItems: "center" }} />
-        </Popover>
-      </div>
+      <Brand />
+      <SearchBar />
+      <IconHeader />
     </Header>
   );
-}
+};
 
 export default Heading;
